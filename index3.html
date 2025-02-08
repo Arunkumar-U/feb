@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffe6f2;
+    color: #d63384;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+/* ❤️ Pulsing Heart Animation for Title */
+h1 {
+    font-size: 2.5rem;
+    animation: pulseHeart 1.5s infinite alternate;
+}
+
+/* 💖 Fade-In Effect for Message */
+.message {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* 💌 Bouncing Button Effect */
+button {
+    background-color: #ff66b2;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(255, 0, 102, 0.4);
+    animation: bounce 1.5s infinite;
+}
+
+button:hover {
+    background-color: #ff3385;
+    transform: scale(1.05);
+}
+
+/* 💗 Smooth Fade-In for the Hidden Message */
+.hidden {
+    display: none;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* Floating Hearts Animation */
+#heartContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: #ff3385;
+    font-size: 20px;
+    animation: float 5s linear infinite, heartbeat 1.5s infinite;
+}
+
+/* ❤️ Pulsing Animation for Hearts */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ❤️ Pulsing Heart for Title */
+@keyframes pulseHeart {
+    0% { transform: scale(1); color: #d63384; }
+    100% { transform: scale(1.1); color: #ff3385; }
+}
+
+/* 🎀 Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 💖 Button Bounce */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ❤️ Floating Hearts Effect */
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
