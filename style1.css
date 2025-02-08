@@ -1,0 +1,71 @@
+/* General Page Styles */
+body {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    background-color: #ffe6f2;
+    color: #d63384;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Full-Screen Message Container */
+.fullscreen-message {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ff99cc, #ff66b2, #ff3385);
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards, pulseText 1.5s infinite alternate;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Floating Hearts Effect */
+#heartContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    animation: float 8s linear infinite, heartbeat 1.5s infinite alternate;
+    opacity: 0.8;
+}
+
+/* Pulsing Animation for Text */
+@keyframes pulseText {
+    0% { transform: scale(1); text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6); }
+    100% { transform: scale(1.05); text-shadow: 3px 3px 20px rgba(255, 255, 255, 0.9); }
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Floating Hearts Animation */
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 0.8; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
