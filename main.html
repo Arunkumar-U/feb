@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        /* Full-page styling */
+        body {
+            background-color: #ff007f; /* Rose color */
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        /* Big Valentine's message */
+        .valentine-text {
+            font-size: 5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Floating heart animation */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 25px;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Hidden Message */
+        .message-container {
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Each word in the message */
+        .word {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Final animation for the whole message */
+        .final-animation {
+            animation: scaleUp 1s ease-in-out;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+    </style>
+</head>
+<body onclick="revealWord()">
+
+    <!-- Valentine's Message -->
+    <div class="valentine-text">💖 Happy Valentine's Day! 💖</div>
+
+    <!-- Hidden Message Container -->
+    <div class="message-container" id="messageContainer">
+        <!-- Each word wrapped in a span -->
+        <span class="word"></span>
+        <span class="word">Dear My Love chris❤️,</span>
+        <span class="word">You are the most special person </span>
+        <span class="word">in my life,</span>
+        <span class="word">Every moment with you feels like a beautiful dream.</span>
+        <span class="word"> I cherish every second we share together. Happy Valentine's Day! 💖,</span>
+        <span class="word">With love,</span>
+        <span class="word">Arunkumar</span>
+        <span class="word">❤️❤️❤️</span>
+    </div>
+
+    <script>
+        let wordIndex = 0;
+        const words = document.querySelectorAll(".word");
+
+        // Function to reveal each word one by one on click
+        function revealWord() {
+            if (wordIndex < words.length) {
+                words[wordIndex].style.opacity = "1";
+                wordIndex++;
+            } else {
+                document.getElementById("messageContainer").classList.add("final-animation");
+            }
+        }
+
+        // Function to create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+
+            const size = Math.random() * 20 + 10;
+            heart.style.fontSize = size + 'px';
+
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = '100vh';
+
+            const duration = Math.random() * 5 + 2;
+            heart.style.animationDuration = duration + 's';
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        // Start floating hearts animation
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
